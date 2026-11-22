@@ -1,74 +1,105 @@
-# 🛒 Superstore Retail Analytics | SQL + Python + Power BI
+🛒 Superstore Retail Analytics Dashboard | SQL + Python + Power BI
 
-An end-to-end analytics project on retail sales data. It starts with a MySQL database and SQL analysis, moves to Python for cleaning, profitability, customer segmentation and forecasting, and finishes with a 5-page Power BI dashboard built for business users. A Streamlit version of the dashboard is also hosted online.
+An end-to-end retail analytics project focused on understanding sales performance, customer buying behaviour, profitability and regional trends.
 
-The goal is simple: find out where the business makes money, where it loses it, and what to do about it.
+The project uses MySQL for database management and SQL analysis, Python for data cleaning, exploratory data analysis, customer segmentation and forecasting, Power BI for business intelligence, and Streamlit for an interactive web-based dashboard.
 
-🔗 **Live Streamlit app:** [Superstore Analytics · Streamlit](https://superstore-retail-analytics-t4xxmbjvhzbanguvwkgens.streamlit.app/)
+Developed and customized as a B.Tech Computer Science academic minor project.
 
----
+🔗 Live Streamlit App: Coming soon
 
-## 📌 Business Problem
+📌 Business Problem
 
 A retail company wants to understand its sales performance, customer buying behaviour and profitability across regions and product categories.
 
-## 🎯 Project Objectives
+The objective is to identify business opportunities, understand factors affecting profitability and support better data-driven decisions.
 
-- Identify top-performing products
-- Analyse profit trends over time
-- Improve customer targeting
-- Increase sales in weaker regions
-- Find loss-making products, states and discount patterns
-- Build a 6-month sales forecast
+🎯 Project Objectives
 
----
+Identify top-performing products.
 
-## 🏗️ Workflow
+Analyse profit trends over time.
 
-```
+Improve customer targeting.
+
+Increase sales in weaker regions.
+
+Find loss-making products, states and discount patterns.
+
+Build a six-month sales forecast.
+
+🏗️ Project Workflow
+
         Superstore CSV (9,994 rows, 21 columns)
-                        │
-                        ▼
-          MySQL: staging table → clean table
-                        │
-                        ▼
-            SQL analysis (region, category,
-            customers, monthly trend, ABC)
-                        │
-                        ▼
-        Python: cleaning, EDA, RFM + K-Means,
-        correlation, Holt-Winters forecast
-                        │
-                        ▼
-          Power BI: 5-page interactive dashboard
-                        │
-                        ▼
-      Streamlit: same dashboard, live on the web
-```
+                       |
+                       ▼
+         MySQL: Staging Table → Clean Table
+                       |
+                       ▼
+           SQL Analysis (Region, Category,
+           Customers, Monthly Trends, ABC)
+                       |
+                       ▼
+       Python: Cleaning, EDA, RFM + K-Means,
+       Correlation, Holt-Winters Forecast
+                       |
+                       ▼
+         Power BI: 5-Page Interactive Dashboard
+                       |
+                       ▼
+          Streamlit: Interactive Web Dashboard
 
-## ⭐ Tech Stack
+⭐ Technology Stack
 
-| Category | Technology |
-|---|---|
-| Database | MySQL 8 |
-| Querying | SQL (CTEs, window functions) |
-| Programming | Python |
-| Data processing | Pandas, NumPy |
-| Visualisation | Matplotlib, Seaborn |
-| Machine learning | scikit-learn (K-Means) |
-| Forecasting | statsmodels (Holt-Winters) |
-| BI tool | Power BI Desktop |
-| Web app | Streamlit, Plotly |
-| Version control | Git and GitHub |
+Category
 
----
+Technology
 
-## 📂 Project Structure
+Database
 
-```
+MySQL 8
+
+Querying
+
+SQL (CTEs, Window Functions)
+
+Programming
+
+Python
+
+Data Processing
+
+Pandas, NumPy
+
+Visualisation
+
+Matplotlib, Seaborn
+
+Machine Learning
+
+Scikit-learn (K-Means)
+
+Forecasting
+
+Statsmodels (Holt-Winters)
+
+BI Tool
+
+Power BI Desktop
+
+Web Application
+
+Streamlit, Plotly
+
+Version Control
+
+Git and GitHub
+
+📂 Project Structure
+
 Superstore-Retail-Analytics/
 │
-├── app.py                      (Streamlit dashboard)
+├── app.py
 ├── requirements.txt
 ├── README.md
 │
@@ -87,146 +118,263 @@ Superstore-Retail-Analytics/
 ├── powerbi/
 │   └── superstore_dashboard.pbix
 │
-├── screenshots/
-│   ├── 1_executive_overview.png
-│   ├── 2_regional_drillthrough.png
-│   ├── 3_product_performance.png
-│   ├── 4_customer_segmentation.png
-│   └── 5_sales_forecast.png
-```
+└── screenshots/
+    ├── 1_executive_overview.png
+    ├── 2_regional_drillthrough.png
+    ├── 3_product_performance.png
+    ├── 4_customer_segmentation.png
+    └── 5_sales_forecast.png
 
-Note: the folder is `Data/Processed` with capital letters because GitHub (and Streamlit's Linux servers) treat folder names as case-sensitive.
+Note: The folder is named Data/Processed with capital letters because GitHub and Streamlit's Linux servers treat folder names as case-sensitive.
 
----
+📊 Dataset
 
-## 📊 Dataset
+The project uses Superstore retail sales data from Kaggle (Vivek468, "Superstore Dataset Final").
 
-Superstore sales data from Kaggle (Vivek468, "Superstore Dataset Final").
+Item
 
-| Item | Value |
-|---|---|
-| Rows (order lines) | 9,994 |
-| Columns | 21 |
-| Orders | 5,009 |
-| Customers | 793 |
-| Period | Jan 2014 to Dec 2017 |
-| Regions | Central, East, South, West |
-| Categories | Furniture, Office Supplies, Technology |
+Value
 
-One row is one product line inside an order, so `Order ID` repeats and `Row ID` is the primary key.
+Rows (Order Lines)
 
----
+9,994
 
-## 🗄️ SQL Analysis (MySQL)
+Columns
 
-Raw data is loaded into a text-only staging table first, then cleaned and moved into a typed table (dates converted with `STR_TO_DATE`, postal codes kept as text).
+21
 
-Queries included:
+Orders
 
-- Region-wise sales, profit and margin
-- Profit by category and sub-category
-- Top 10 customers
-- Monthly sales trend, seasonality and year-over-year growth
-- Loss-making sub-categories and products
-- Discount level vs profit (revenue leakage)
-- Worst states by profit
-- ABC product analysis
-- Repeat vs one-time customers
+5,009
 
-## 🐍 Python Analysis
+Customers
 
-- Data cleaning: column names, date types, duplicates, missing values
-- Sales and profit trend plots, seasonality
-- Profitability by category, sub-category and region x category heatmap
-- Correlation matrix (sales, quantity, discount, profit)
-- Customer segmentation using RFM and K-Means (4 clusters)
-- 6-month sales forecast using Holt-Winters
-- Clean CSV exports used by the Power BI dashboard
+793
 
-## 📈 Power BI Dashboard
+Period
 
-| Page | What it shows |
-|---|---|
-| Executive Overview | KPI cards, monthly sales vs profit, sales by region, profit by category, top 5 customers, slicers |
-| Regional Drill-through | Region drill-through, profitability heatmap (sub-category x region), bottom 10 states by profit |
-| Product Performance | Top 10 products by sales, profit by sub-category, top 10 loss-making products, discount vs margin |
-| Customer Segmentation | Cluster sizes, segment map, at-risk customers, win-back list |
-| Sales Forecast | Actual vs 6-month forecast, seasonality by month |
+January 2014 – December 2017
 
-Features: dynamic KPI cards, interactive slicers (Year, Region, Segment, Category), drill-through from region to detail page, and conditional colours (green for profit, red for loss).
+Regions
 
----
+Central, East, South, West
 
-## 🔍 Key Business Insights
+Categories
 
-**Overall:** $2.30M in sales, $286K in profit, 12.47% margin, 5,009 orders and 793 customers.
+Furniture, Office Supplies, Technology
 
-**Most profitable region:** West leads with about $108K profit. East follows with about $92K. Central has $501K in sales but only about $40K in profit (roughly 8% margin), the weakest of the four.
+One row represents one product line inside an order. Therefore, Order ID can repeat, while Row ID serves as the primary key.
 
-**Loss-making products and categories:**
-- Tables (about -$17.7K), Bookcases (about -$3.5K) and Supplies (about -$1.2K) lose money
-- Three of the top 10 products by sales also make a loss, including the Cisco TelePresence EX90
-- The worst states are Texas, Ohio, Pennsylvania and Illinois
+🗄️ SQL Analysis (MySQL)
 
-**Seasonal trends:** Sales peak in September, November and December and are weakest in January and February.
+Raw data is loaded into a text-only staging table before being cleaned and moved into a typed table. Dates are converted using STR_TO_DATE, while postal codes are retained as text.
 
-**ABC analysis (1,850 products):** 285 products (about 15%) bring in 70% of sales (class A), 376 are class B, and 1,189 are class C, adding only about 10% of sales.
+Queries include:
 
-**Customer retention:** 98% of customers are repeat buyers, but 174 customers who ordered often haven't ordered in over six months. These are the win-back targets.
+Region-wise sales, profit and margin.
 
-**Forecast:** Holt-Winters predicts about $362K in sales for Jan to Jun 2018. The holdout error (MAPE) was about 17%, so treat it as a planning guide, not an exact figure.
+Profit by category and sub-category.
 
----
+Top 10 customers.
 
-## 💡 Recommendations
+Monthly sales trends, seasonality and year-over-year growth.
 
-1. **Fix Central before expanding it.** Review pricing and discounts in Texas and Illinois first.
-2. **Control discounts.** The weakest margins sit at higher discount levels, especially on Tables and Bookcases.
-3. **Review loss-making products.** Reprice or drop consistent losers from the bottom-10 list.
-4. **Run a win-back campaign** for the 174 high-value customers who have gone quiet.
-5. **Plan stock early** for the September to December peak and keep January and February lean.
+Loss-making sub-categories and products.
 
----
+Discount level versus profit analysis.
 
-## 🚀 Getting Started
+Worst-performing states by profit.
 
-```bash
-git clone https://github.com/AaranTuscano/Superstore-Retail-Analytics.git
+ABC product analysis.
+
+Repeat versus one-time customers.
+
+🐍 Python Analysis
+
+Python is used for data processing, statistical analysis and predictive modelling.
+
+Key analytical tasks include:
+
+Data cleaning: column names, date types, duplicates and missing values.
+
+Sales and profit trend analysis.
+
+Profitability by category, sub-category and region.
+
+Correlation analysis involving sales, quantity, discount and profit.
+
+Customer segmentation using RFM analysis and K-Means clustering.
+
+Six-month sales forecasting using Holt-Winters.
+
+Exporting processed CSV files for Power BI.
+
+📈 Power BI Dashboard
+
+The Power BI dashboard contains five analytical pages.
+
+Page
+
+Description
+
+Executive Overview
+
+KPI cards, monthly sales versus profit, regional sales, category profit and top customers
+
+Regional Drill-through
+
+Regional profitability, sub-category heatmap and bottom 10 states
+
+Product Performance
+
+Top products, sub-category profitability and loss-making products
+
+Customer Segmentation
+
+Customer clusters, at-risk customers and win-back targets
+
+Sales Forecast
+
+Historical sales, six-month forecast and monthly seasonality
+
+Dashboard features include dynamic KPI cards, interactive slicers, regional drill-through and conditional formatting.
+
+🔍 Key Business Insights
+
+The following insights are reported in the original analysis of the dataset.
+
+Overall Performance
+
+Total sales: approximately $2.30 million.
+
+Total profit: approximately $286,000.
+
+Profit margin: approximately 12.47%.
+
+Orders: 5,009.
+
+Customers: 793.
+
+Regional Performance
+
+West leads with approximately $108,000 in profit.
+
+East follows with approximately $92,000.
+
+Central has approximately $501,000 in sales but only around $40,000 in profit.
+
+Loss-Making Products and Categories
+
+Tables generate approximately $17,700 in losses.
+
+Bookcases generate approximately $3,500 in losses.
+
+Supplies generate approximately $1,200 in losses.
+
+Texas, Ohio, Pennsylvania and Illinois are among the weakest states by profit.
+
+Seasonality
+
+Sales generally peak in September, November and December and are weakest in January and February.
+
+ABC Analysis
+
+285 products (approximately 15%) account for 70% of sales.
+
+376 products fall into Class B.
+
+1,189 products fall into Class C.
+
+Customer Retention
+
+The original analysis reports that approximately 98% of customers are repeat buyers, with 174 customers identified as potential win-back targets.
+
+Sales Forecast
+
+The original Holt-Winters forecast predicts approximately $362,000 in sales for January to June 2018. The reported holdout MAPE is approximately 17%.
+
+Forecasts should be interpreted as estimates rather than guaranteed outcomes.
+
+💡 Business Recommendations
+
+Improve Central region profitability: Review pricing and discounting strategies in weaker-performing states.
+
+Control excessive discounts: Evaluate the relationship between discount levels and profit margins.
+
+Review loss-making products: Consider repricing or discontinuing consistently unprofitable products.
+
+Improve customer retention: Develop win-back campaigns for inactive customers.
+
+Plan inventory strategically: Prepare for seasonal sales peaks in September through December.
+
+🚀 Getting Started
+
+1. Clone the Repository
+
+git clone https://github.com/SamarthTechKing/Superstore-Retail-Analytics.git
+
 cd Superstore-Retail-Analytics
 
+2. Create a Virtual Environment
+
 python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# Linux / Mac
+
+Windows:
+
+venv\Scripts\activate
+
+Linux / Mac:
+
 source venv/bin/activate
 
+3. Install Dependencies
+
 pip install -r requirements.txt
-```
 
-1. Run `sql/superstore_analysis.sql` in MySQL Workbench, section by section.
-2. Run `python/Project_2_fixed.ipynb` cell by cell (set `CSV_PATH` to your file location). It exports the 3 processed CSVs.
-3. Open `powerbi/superstore_dashboard.pbix` in Power BI Desktop and refresh the data source path if asked.
-4. Run the Streamlit app locally with `streamlit run app.py`.
+4. Run the Project
 
-> Note: never commit database passwords. Keep credentials in a local `.env` file and add it to `.gitignore`.
+Run sql/superstore_analysis.sql in MySQL Workbench, section by section.
 
+Run python/Project_2_fixed.ipynb cell by cell, setting the CSV file path correctly.
 
----
+Open powerbi/superstore_dashboard.pbix in Power BI Desktop and refresh the data source path if required.
 
-## 📋 Future Enhancements
+Start the Streamlit application:
 
-- Publish the report to Power BI Service
-- Product-level forecasting
-- Automated data refresh from MySQL
+streamlit run app.py
 
-## 📚 Skills Demonstrated
+Note: Database credentials should never be committed to GitHub. Store credentials in a local .env file and include it in .gitignore.
 
-SQL (MySQL) · Python · Pandas · Data Cleaning · EDA · RFM and K-Means Segmentation · Time-Series Forecasting · Power BI · DAX · Dashboard Design · Business Analytics · Git and GitHub
+📋 Future Enhancements
 
-## 👨‍💻 Author
+Publish the report to Power BI Service.
 
-**Aaran Tuscano**
-MBA Business Analytics | SQL | Python | Power BI
+Introduce product-level forecasting.
 
-LinkedIn: [linkedin.com/in/aaran-tuscano](https://www.linkedin.com/in/aaran-tuscano)
-GitHub: [github.com/AaranTuscano](https://github.com/AaranTuscano)
+Automate data refresh from MySQL.
+
+Expand interactive dashboard capabilities.
+
+Add additional customer and regional performance metrics.
+
+📚 Skills Demonstrated
+
+SQL (MySQL) · Python · Pandas · NumPy · Data Cleaning · Exploratory Data Analysis · RFM Analysis · K-Means Clustering · Time-Series Forecasting · Power BI · Dashboard Design · Business Analytics · Git and GitHub
+
+👨‍💻 Student Developer
+
+Samarth Sharma
+
+B.Tech Computer Science
+Academic Minor Project
+
+🙏 Original Project Acknowledgement
+
+The original project and source code were developed by Aaran Tuscano.
+
+This repository is an academic adaptation of the original project. The original work is acknowledged, and additional modifications and contributions are documented as development progresses.
+
+Original Repository:
+https://github.com/AaranTuscano/Superstore-Retail-Analytics
+
+Original copyright notices and applicable licence terms must be respected.
