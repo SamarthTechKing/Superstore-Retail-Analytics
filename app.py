@@ -11,7 +11,7 @@ import streamlit as st
 
 st.set_page_config(page_title="Superstore Analytics", page_icon="🛒", layout="wide")
 
-DATA_DIR = Path(__file__).parent / "Data" / "Processed"
+DATA_DIR = Path(__file__).parent
 GREEN, RED, BLUE = "#59A14F", "#E15759", "#7B4FC4"
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
