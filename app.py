@@ -203,4 +203,4 @@ with tab5:
                               color_discrete_sequence=[BLUE]), width="stretch")
 
 st.divider()
-st.caption("Built by Aaran Tuscano | SQL + Python + Power BI | Data: Superstore (Kaggle)")
+st.caption("Customized by Samarth Sharma | Academic Minor Project")
