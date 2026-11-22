@@ -1,7 +1,7 @@
 """
 Superstore Retail Analytics - Streamlit dashboard
 Python version of the Power BI report (5 pages as tabs).
-Reads the 3 CSVs exported by superstore_python_analysis.py from data/processed/.
+Reads the 3 processed CSV files from the project directory.
 """
 from pathlib import Path
 
